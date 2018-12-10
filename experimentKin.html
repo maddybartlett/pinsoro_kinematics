@@ -138,6 +138,12 @@
       "<p> After each video you will be asked some questions about what you have watched. <p/>" +
       "<p> Press any key to continue.</p>",
     };
+    //Pretrial
+    var pretrial = {
+      type: "html-keyboard-response",
+      stimulus: "You are about to watch the next clip. Press any key to begin."
+    };
+            
     //Stimulus List
     var video_stim = [
       { stimulus: "clips/clip_skel_01.mp4" },
@@ -276,8 +282,7 @@
     };
 //Trial Sequence
     var trial_seq = {
-        timeline: [video_stimulus, open_question, qs_1to8, qs_9to16, qs_17to24, qs_25to32],
-        //timeline: [qs_1to8],
+        timeline: [video_stimulus, open_question, qs_1to8, qs_9to16, qs_17to24, qs_25to32, pretrial],
         timeline_variables: vid_trials,
         randomize_order: true
     };
