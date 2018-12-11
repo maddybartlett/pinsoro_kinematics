@@ -188,38 +188,63 @@
     }
 ;
 // Likert Questions Order
-    var questionlist =["The children were competing with one another.",
-    "The children were cooperating with one another.",
-    "The children were playing separately.",
-    "The children were playing together.",
-    "The child on the left was sad.",
-    "The child on the right was sad.",
-    "The child on the left was happy.",
-    "The child on the right was happy.",
-    "The child on the left was angry.",
-    "The child on the right was angry.",
-    "The child on the left was excited.",
-    "The child on the right was excited.",
-    "The child on the left was calm.",
-    "The child on the right was calm.",
-    "The child on the left was friendly.",
-    "The child on the right was friendly.",
-    "The child on the left was aggressive.",
-    "The child on the right was aggressive.",
-    "The child on the left was engaged with what they were doing on the table.",
-    "The child on the right was engaged with what they were doing on the table.",
-    "The child on the left was distracted from the table.",
-    "The child on the right was distracted from the table.",
-    "The child on the left was bored.",
-    "The child on the right was bored.",
-    "The child on the left was frustrated.",
-    "The child on the right was frustrated.",
-    "The child on the left was dominant.",
-    "The child on the right was dominant.",
-    "The child on the left was submissive.",
+    var compete =["The children were competing with one another."
+  ];
+    var coop =["The children were cooperating with one another."
+  ];
+    var sep =["The children were playing separately."
+  ];
+    var tog =["The children were playing together."
+  ];
+    var pair1 =["The child on the left was sad.",
+    "The child on the right was sad."
+  ];
+    var pair2 =["The child on the left was happy.",
+    "The child on the right was happy."
+  ];
+    var pair3 =["The child on the left was angry.",
+    "The child on the right was angry."
+  ];
+    var pair4 =["The child on the left was angry.",
+    "The child on the right was angry."
+  ];
+    var pair5 =["The child on the left was excited.",
+    "The child on the right was excited."
+  ];
+    var pair6 =["The child on the left was calm.",
+    "The child on the right was calm."
+  ];
+    var pair7 =["The child on the left was friendly.",
+    "The child on the right was friendly."
+  ];
+    var pair8 =["The child on the left was aggressive.",
+    "The child on the right was aggressive."
+  ];
+    var pair9 =["The child on the left was engaged with what they were doing on the table.",
+    "The child on the right was engaged with what they were doing on the table."
+  ];
+    var pair10 =["The child on the left was distracted from the table.",
+    "The child on the right was distracted from the table."
+  ];
+    var pair11 =["The child on the left was bored.",
+    "The child on the right was bored."
+  ];
+    var pair12 =["The child on the left was frustrated.",
+    "The child on the right was frustrated."
+  ];
+    var pair13 =["The child on the left was dominant.",
+    "The child on the right was dominant."
+  ];
+    var pair14 =["The child on the left was submissive.",
     "The child on the right was submissive."
   ];
-    var questionorder = jsPsych.randomization.shuffle(questionlist);
+    var questions = [compete, coop, sep, tog, pair1, pair2, pair3, pair4, pair5,
+    pair6, pair7, pair8, pair9, pair10, pair11, pair12, pair13, pair14];
+    var questions1 = jsPsych.randomization.shuffle(questions);
+    questionorder = [];
+    questionorder = questionorder.concat(questions1[0], questions1[1], questions1[2], questions1[3], questions1[4],
+    questions1[5], questions[6], questions[7], questions[8], questions[9], questions[10], questions[11], questions[12],
+    questions[13], questions[14], questions[15], questions[16], questions[17]);
 
 //Scales for likert questions
     var options_1 = ["Strongly Disagree", "Disagree", "Not Sure", "Agree", "Strongly Agree"];
