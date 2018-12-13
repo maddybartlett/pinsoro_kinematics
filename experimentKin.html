@@ -124,7 +124,7 @@
   var instructions1 = {
       type: "html-keyboard-response",
       stimulus: "<p>During this experiment you will be shown 4 short videos of stick-figures representing children interacting.</p>" +
-      "<p> The children are sat either side of a table on which they can play a game. </p>" +
+      "<p> The children are sat either side of a touch-sceen table-top on which they can play a game. </p>" +
       "<p><strong> Pay particular attention to the way the children interact. </strong></p>"+
       "<p> After each video you will be asked some questions about what you have watched. <p/>",
       choices: jsPsych.NO_KEYS,
@@ -133,7 +133,7 @@
     var instructions2 = {
       type: "html-keyboard-response",
       stimulus: "<p>During this experiment you will be shown 4 30-second clips of stick-figures representing children interacting.</p>" +
-      "<p> The children are sat either side of a table on which they can play a game. </p>" +
+      "<p> The children are sat either side of a touch-sceen table-top on which they can play a game. </p>" +
       "<p><strong> Pay particular attention to the way the children interact. </strong></p>"+
       "<p> After each video you will be asked some questions about what you have watched. <p/>" +
       "<p> Press any key to continue.</p>",
@@ -143,7 +143,6 @@
       type: "html-keyboard-response",
       stimulus: "You are about to watch the next clip. Press any key to begin."
     };
-            
     //Stimulus List
     var video_stim = [
       { stimulus: "clips/clip_skel_01.mp4" },
@@ -185,9 +184,8 @@
                    columns: 70
                   }],
         preamble: "<span></span>"
-    }
-;
-// Likert Questions Order
+    };
+
     var compete =["The children were competing with one another."
   ];
     var coop =["The children were cooperating with one another."
@@ -205,47 +203,43 @@
     var pair3 =["The child on the left was angry.",
     "The child on the right was angry."
   ];
-    var pair4 =["The child on the left was angry.",
-    "The child on the right was angry."
-  ];
-    var pair5 =["The child on the left was excited.",
+    var pair4 =["The child on the left was excited.",
     "The child on the right was excited."
   ];
-    var pair6 =["The child on the left was calm.",
+    var pair5 =["The child on the left was calm.",
     "The child on the right was calm."
   ];
-    var pair7 =["The child on the left was friendly.",
+    var pair6 =["The child on the left was friendly.",
     "The child on the right was friendly."
   ];
-    var pair8 =["The child on the left was aggressive.",
+    var pair7 =["The child on the left was aggressive.",
     "The child on the right was aggressive."
   ];
-    var pair9 =["The child on the left was engaged with what they were doing on the table.",
+    var pair8 =["The child on the left was engaged with what they were doing on the table.",
     "The child on the right was engaged with what they were doing on the table."
   ];
-    var pair10 =["The child on the left was distracted from the table.",
+    var pair9 =["The child on the left was distracted from the table.",
     "The child on the right was distracted from the table."
   ];
-    var pair11 =["The child on the left was bored.",
+    var pair10 =["The child on the left was bored.",
     "The child on the right was bored."
   ];
-    var pair12 =["The child on the left was frustrated.",
+    var pair11 =["The child on the left was frustrated.",
     "The child on the right was frustrated."
   ];
-    var pair13 =["The child on the left was dominant.",
+    var pair12 =["The child on the left was dominant.",
     "The child on the right was dominant."
   ];
-    var pair14 =["The child on the left was submissive.",
+    var pair13 =["The child on the left was submissive.",
     "The child on the right was submissive."
   ];
     var questions = [compete, coop, sep, tog, pair1, pair2, pair3, pair4, pair5,
-    pair6, pair7, pair8, pair9, pair10, pair11, pair12, pair13, pair14];
+    pair6, pair7, pair8, pair9, pair10, pair11, pair12, pair13];
     var questions1 = jsPsych.randomization.shuffle(questions);
     questionorder = [];
     questionorder = questionorder.concat(questions1[0], questions1[1], questions1[2], questions1[3], questions1[4],
-    questions1[5], questions[6], questions[7], questions[8], questions[9], questions[10], questions[11], questions[12],
-    questions[13], questions[14], questions[15], questions[16], questions[17]);
-
+    questions1[5], questions1[6], questions1[7], questions1[8], questions1[9], questions1[10], questions1[11], questions1[12],
+    questions1[13], questions1[14], questions1[15], questions1[16], questions1[17]);
 //Scales for likert questions
     var options_1 = ["Strongly Disagree", "Disagree", "Not Sure", "Agree", "Strongly Agree"];
     var options_2 = ["Strongly Disagree", "Children", "Not Sure", "Adults", "Strongly Agree"];
@@ -336,9 +330,11 @@
 /* start the experiment */
   jsPsych.init({
     timeline: timelineAssigned,
-    on_trial_finish: function(){
-      saveData(subject_id+"_data.csv", jsPsych.data.get().csv());
-    }
-  });
+    //on_trial_finish: function(){
+      //saveData(subject_id+"_data.csv", jsPsych.data.get().csv());
+    on_finish: function() {
+      jsPsych.data.get().localSave('csv', 'P5_ValidateSkel.csv')
+  }
+});
 </script>
 </html>
