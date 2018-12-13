@@ -330,11 +330,8 @@
 /* start the experiment */
   jsPsych.init({
     timeline: timelineAssigned,
-    //on_trial_finish: function(){
-      //saveData(subject_id+"_data.csv", jsPsych.data.get().csv());
-    on_finish: function() {
-      jsPsych.data.get().localSave('csv', 'P5_ValidateSkel.csv')
-  }
+    on_trial_finish: function(){
+      saveData(subject_id+"_data.csv", jsPsych.data.get().csv());
 });
 </script>
 </html>
